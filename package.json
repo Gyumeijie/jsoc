@@ -7,7 +7,12 @@
     "object-clone",
     "obj-clone",
     "javacript",
-    "clone-object"
+    "clone-object",
+    "copy",
+    "copy-object",
+    "object-copy",
+    "obj-copy",
+    "copy-obj"
   ],
   "main": "index.js",
   "scripts": {
