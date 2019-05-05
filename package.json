@@ -1,0 +1,33 @@
+{
+  "name": "jsoc",
+  "version": "1.0.0",
+  "description": "clone a javascript object",
+  "keywords": [
+    "clone",
+    "object-clone",
+    "obj-clone",
+    "javacript",
+    "clone-object"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": {
+    "name": "gyumeijie",
+    "email": "18170879819@163.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gyumeijie/jsoc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Gyumeijie/jsoc/issues"
+  },
+  "homepage": "https://github.com/Gyumeijie/jsoc#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.4.4",
+    "jest": "24.7.1"
+  }
+}
