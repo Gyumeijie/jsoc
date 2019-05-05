@@ -5,13 +5,13 @@
 ## Install
 
 ```bash
-$ npm install jsoc
+$ npm install @gyumeijie/jsoc
 ```
 
 ## Usage
 
 ```js
-const clone = require('jsoc');
+const clone = require('@gyumeijie/jsoc');
 
 let a = { foo: { bar: 'baz' } };
 

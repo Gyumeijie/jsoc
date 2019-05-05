@@ -1,5 +1,5 @@
 {
-  "name": "jsoc",
+  "name": "@gyumeijie/jsoc",
   "version": "1.0.0",
   "description": "clone a javascript object",
   "keywords": [

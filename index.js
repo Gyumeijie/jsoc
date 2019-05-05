@@ -35,7 +35,7 @@ const clonePromise = (promise, cloning) =>
     );
   });
 
-// Types needed to be handled specailly
+// Types needed to be handled specially
 const cloneHandlers = {
   Date: cloneDate,
   RegExp: cloneRegExp,
