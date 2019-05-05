@@ -5,8 +5,7 @@ const isPrimitive = (val) => typeof val !== 'object' || val === null;
 const typeRegExp = /\[object (\w+)\]/;
 const getTypeOf = (obj) => {
   const type = Object.prototype.toString.call(obj);
-  const match = typeRegExp.exec(type);
-  return match[1];
+  return typeRegExp.exec(type)[1];
 };
 
 const compositeType = ['Object', 'Array', 'Map', 'WeakMap', 'Set', 'WeakSet'];
@@ -44,21 +43,19 @@ const cloneHandlers = {
 
 const initializeClonedObject = (obj) => {
   const type = getTypeOf(obj);
-
   let initVal = null;
+
   if (compositeType.includes(type)) {
     initVal = eval(`new ${type}()`);
   }
-
   return initVal;
 };
 
 const clone = (obj) => {
   // Return the obj if it is actually a primitive
-  if (isPrimitive(obj)) {
-    return obj;
-  }
+  if (isPrimitive(obj)) return obj;
 
+  // Doing the actual cloning work
   const cloning = (target) => {
     const cloned = initializeClonedObject(target);
 
@@ -91,11 +88,9 @@ const clone = (obj) => {
 
       return cloned;
     }
-
     // Process other types such as `Date`, `RegExp`, `Promise`
     return cloneHandlers[getTypeOf(target)](target, cloning);
   };
-
   return cloning(obj);
 };
 
