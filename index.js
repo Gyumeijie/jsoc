@@ -51,13 +51,28 @@ const initializeClonedObject = (obj) => {
   return initVal;
 };
 
+const hasBeenCloned = (objRefs, obj) => {
+  if (objRefs.indexOf(obj) === -1) {
+    objRefs.push(obj);
+    return false;
+  }
+  return true;
+};
+
 const clone = (obj) => {
   // Return the obj if it is actually a primitive
   if (isPrimitive(obj)) return obj;
 
   // Doing the actual cloning work
+  const objRefs = [];
+  const map = new Map();
   const cloning = (target) => {
+    if (hasBeenCloned(objRefs, target)) {
+      return map.get(target);
+    }
+
     const cloned = initializeClonedObject(target);
+    map.set(target, cloned);
 
     if (isCompositeType(target)) {
       // Loops through the properties of any composite object

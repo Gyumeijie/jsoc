@@ -133,3 +133,25 @@ describe('clone promise', () => {
     );
   });
 });
+
+describe('clone object with circular reference', () => {
+  let a = { name: 'a' };
+  let b = { name: 'b' };
+  a.loop = b;
+  b.loop = a;
+
+  test('', () => {
+    let o = { prop1: a, prop2: b };
+    let c = clone(o);
+    c.prop1.name = 'A';
+    c.prop2.name = 'B';
+  
+    let A = { name: 'A' };
+    let B = { name: 'B' };
+    A.loop = B;
+    B.loop = A;
+    let r = clone({ prop1: A, prop2: B });
+
+    expect(c).toEqual(r);
+  });
+});
